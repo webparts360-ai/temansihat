@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <title>BookDoc Competitive Analysis – Interactive Briefing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+  <!-- Top nav -->
+  <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+      <div class="font-semibold text-slate-800">BookDoc Competitive Dossier</div>
+      <div class="hidden sm:flex text-sm gap-4">
+        <a href="#summary" class="hover:text-blue-600">Summary</a>
+        <a href="#business" class="hover:text-blue-600">Business Model</a>
+        <a href="#solutions" class="hover:text-blue-600">Solutions</a>
+        <a href="#momentum" class="hover:text-blue-600">Momentum</a>
+        <a href="#swot" class="hover:text-blue-600">SWOT</a>
+        <a href="#playbook" class="hover:text-blue-600">How to Win</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+    <!-- Executive summary -->
+    <section id="summary" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-bold mb-2">
+            BookDoc – Competitor Briefing for Telehealth, Search & Corporate Wellness
+          </h1>
+          <p class="text-slate-600">
+            BookDoc is a regional “one‑stop health app” offering doctor search & booking, teleconsultation, and a gamified
+            wellness programme that rewards users for being active.[web:92][web:94][web:95]
+            It operates B2C, B2B, and B2B2C models, partnering with corporates, insurers, and hospitality brands across Southeast Asia.[web:93][web:96][web:97][web:103][web:104]
+          </p>
+        </div>
+        <div class="shrink-0">
+          <a href="https://www.bookdoc.com" target="_blank"
+             class="inline-flex items-center gap-1 px-3 py-2 rounded-full text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700">
+            Visit BookDoc website
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+      <p class="text-slate-600 mb-4">
+        From a competitor’s lens, BookDoc owns “search & access” (find providers fast) plus “move & get rewards” engagement;
+        to beat them you must offer tighter clinical integration, deeper corporate outcomes, or a more focused vertical play.[web:92][web:93][web:95][web:98][web:103]
+      </p>
+
+      <div class="grid gap-4 sm:grid-cols-3 text-sm">
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-1">Core Position</div>
+          <p class="text-slate-700">
+            “ZocDoc‑style” search & booking plus telehealth and an Activ wellness rewards programme in one app.[web:92][web:95][web:104]
+          </p>
+        </div>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-1">Differentiator</div>
+          <p class="text-slate-700">
+            Large provider network & lifestyle partners, location‑based convenience, and cross‑country reward redemptions.[web:95][web:96][web:98][web:103]
+          </p>
+        </div>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-1">Our Edge Opportunity</div>
+          <p class="text-slate-700">
+            Out‑perform on medical depth, corporate ROI, and integrated benefits/claims, not just discovery and step rewards.[web:93][web:97][web:100]
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs: model / solutions / momentum -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+      <div class="flex flex-wrap gap-2 mb-6 text-sm">
+        <button data-panel="panel-business"
+          class="tab-btn px-3 py-1.5 rounded-full border text-slate-700 border-slate-200 bg-slate-900 text-white">
+          Business Model
+        </button>
+        <button data-panel="panel-solutions"
+          class="tab-btn px-3 py-1.5 rounded-full border text-slate-700 border-slate-200 bg-white hover:bg-slate-50">
+          Solutions & Benefits
+        </button>
+        <button data-panel="panel-momentum"
+          class="tab-btn px-3 py-1.5 rounded-full border text-slate-700 border-slate-200 bg-white hover:bg-slate-50">
+          Market Momentum
+        </button>
+      </div>
+
+      <!-- Business model -->
+      <div id="panel-business" class="tab-panel space-y-4">
+        <h2 id="business" class="text-xl font-semibold">Business model and value proposition</h2>
+        <ul class="list-disc list-inside text-slate-700 text-sm space-y-2">
+          <li>
+            <span class="font-semibold">Core model:</span> multi‑sided platform connecting consumers, corporates, insurers,
+            and healthcare providers; combines search & booking, teleconsultation, and wellness rewards.[web:92][web:95][web:97][web:100]
+          </li>
+          <li>
+            <span class="font-semibold">Target segments:</span> general consumers needing access to providers; corporates seeking wellness programmes; insurers and partners wanting engagement and health promotion tools.[web:92][web:93][web:97][web:100]
+          </li>
+          <li>
+            <span class="font-semibold">Revenue drivers (inferred from positioning):</span> corporate wellness contracts (HRDC‑claimable programmes), teleconsultation fees, potential listing/lead‑gen value to providers, and partnership revenues with lifestyle brands and insurers.[web:93][web:95][web:97][web:98][web:103][web:104]
+          </li>
+          <li>
+            <span class="font-semibold">Value story:</span> convenient 24/7 access to healthcare, employee wellness engagement via Activ, and marketing reach for healthcare providers and merchant partners.[web:92][web:93][web:95][web:98][web:103]
+          </li>
+        </ul>
+        <p class="text-sm text-amber-700 bg-amber-50 border border-amber-100 rounded-lg p-3">
+          Competitive insight: they monetise network effects and engagement; your edge should be in measurable health outcomes and cost control rather than just convenience and rewards.
+        </p>
+      </div>
+
+      <!-- Solutions -->
+      <div id="panel-solutions" class="tab-panel hidden space-y-4">
+        <h2 id="solutions" class="text-xl font-semibold">Solutions, features, and user benefits</h2>
+
+        <h3 class="font-semibold text-sm text-slate-800">Consumer & patient‑facing solutions</h3>
+        <ul class="list-disc list-inside text-slate-700 text-sm space-y-1.5">
+          <li>Search & book: directory of healthcare professionals (doctors, specialists, dentists, physiotherapists, chiropractors, TCM, etc.) with online booking.[web:92][web:95][web:106]</li>
+          <li>Teleconsultation: text/video consultations by selecting providers, paying a nominal fee, and chatting in‑app (non‑emergency use).[web:95][web:101][web:106]</li>
+          <li>Integrated travel & navigation: links to Waze/Google Maps, Grab/Uber, Agoda/Airbnb, airlines and TripAdvisor for travel‑related care.[web:95][web:96]</li>
+          <li>Activ wellness rewards: step‑based and activity tracking programme that rewards users every month with discounts and cashback from >70 merchants in 12 countries.[web:95][web:98][web:103]</li>
+        </ul>
+
+        <h3 class="font-semibold text-sm text-slate-800 pt-2">Corporate and insurer solutions</h3>
+        <ul class="list-disc list-inside text-slate-700 text-sm space-y-1.5">
+          <li>HRDC‑claimable corporate wellness programmes with lifestyle management, health challenges, webinars and health carnivals.[web:93][web:97][web:101]</li>
+          <li>Partnerships with insurers such as Great Eastern to power corporate wellness programmes (health carnivals, virtual challenges, nutrition webinars).[web:97]</li>
+          <li>Workplace wellness engagements that combine online challenges with on‑ground events.[web:93][web:97][web:102]</li>
+        </ul>
+
+        <h3 class="font-semibold text-sm text-slate-800 pt-2">Benefits narrative</h3>
+        <div class="grid gap-3 md:grid-cols-3 text-xs sm:text-sm">
+          <div class="bg-slate-50 rounded-xl border border-slate-200 p-3">
+            <div class="font-semibold mb-1">Consumers</div>
+            <ul class="list-disc list-inside text-slate-700 space-y-1">
+              <li>Fast discovery of nearby providers, including MOH Klinik Kesihatan listings.[web:92][web:95][web:101]</li>
+              <li>Teleconsult access when travelling or for sensitive topics.[web:95]</li>
+              <li>Rewards for daily activity and cross‑border redemption.[web:95][web:98][web:103]</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 rounded-xl border border-slate-200 p-3">
+            <div class="font-semibold mb-1">Corporates</div>
+            <ul class="list-disc list-inside text-slate-700 space-y-1">
+              <li>Engaging corporate wellness programme with measurable participation.[web:93][web:97][web:101]</li>
+              <li>HRDC‑claimable wellness spend.[web:93]</li>
+              <li>Health content and webinars to support employees.[web:93][web:97]</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 rounded-xl border border-slate-200 p-3">
+            <div class="font-semibold mb-1">Partners</div>
+            <ul class="list-disc list-inside text-slate-700 space-y-1">
+              <li>Healthcare providers: more patient traffic via search & booking.[web:95][web:96][web:103]</li>
+              <li>Merchant partners: access to active, health‑conscious users for rewards.[web:98][web:103]</li>
+              <li>Hotels/resorts: improved guest experience with quick access to nearby healthcare.[web:96]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Market momentum -->
+      <div id="panel-momentum" class="tab-panel hidden space-y-4">
+        <h2 id="momentum" class="text-xl font-semibold">Market momentum and traction</h2>
+        <ul class="list-disc list-inside text-slate-700 text-sm space-y-1.5">
+          <li>Launched in Malaysia around 2015 as a ZocDoc‑style doctor booking platform.[web:95][web:104]</li>
+          <li>Seed funding included US$2M from Prince Abdul Qawi of Brunei and other investors to support regional expansion.[web:99][web:104]</li>
+          <li>Operations in at least five countries (Malaysia, Singapore, Hong Kong, Thailand, Indonesia) with plans for further SEA expansion.[web:99][web:103][web:104]</li>
+          <li>Claims of being “largest integrated healthcare platform in Southeast Asia” with 40,000+ healthcare professionals on the platform.[web:103]</li>
+          <li>Dozens of corporate, insurer, hotel and merchant partnerships (e.g., Petron, Great Eastern, Berjaya Hotels & Resorts, ShopBack, etc.).[web:96][web:97][web:98][web:103]</li>
+        </ul>
+
+        <div class="mt-4">
+          <h3 class="font-semibold text-sm text-slate-800 mb-2">Illustrative perception chart</h3>
+          <canvas id="momentumChart" class="max-h-64"></canvas>
+          <p class="mt-2 text-xs text-slate-500">
+            Internal view of relative strengths vs. our target positioning (scores 0–10).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SWOT -->
+    <section id="swot" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-semibold">BookDoc SWOT – Competitor View</h2>
+        <button id="toggle-swot" class="text-xs px-3 py-1 rounded-full border border-slate-200 hover:bg-slate-50">
+          Toggle compact / full view
+        </button>
+      </div>
+
+      <div id="swot-grid" class="grid gap-4 md:grid-cols-2 text-sm">
+        <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-4">
+          <div class="text-xs font-semibold text-emerald-700 uppercase mb-1">Strengths</div>
+          <ul class="list-disc list-inside text-emerald-900 swot-list space-y-1.5">
+            <li>Wide provider network across multiple countries and 40k+ healthcare professionals.[web:95][web:100][web:103]</li>
+            <li>Strong brand in search & booking plus 24/7 teleconsult access.[web:92][web:95][web:106]</li>
+            <li>Highly engaging Activ rewards programme with cross‑country merchant network.[web:95][web:98][web:103]</li>
+            <li>Partnerships with insurers, corporates, and hospitality brands.[web:96][web:97][web:103]</li>
+            <li>First‑mover perception as a “one‑stop health app” in Malaysia and the region.[web:92][web:104]</li>
+          </ul>
+        </div>
+
+        <div class="bg-rose-50 border border-rose-100 rounded-xl p-4">
+          <div class="text-xs font-semibold text-rose-700 uppercase mb-1">Weaknesses</div>
+          <ul class="list-disc list-inside text-rose-900 swot-list space-y-1.5">
+            <li>Focus on access and engagement rather than deep clinical outcomes or chronic disease management.[web:92][web:95][web:93][web:97]</li>
+            <li>Corporate wellness story is more about engagement events and challenges than strict ROI or cost savings.[web:93][web:97][web:101]</li>
+            <li>Benefits/claims integration less central than for players like HealthMetrics (they’re more a front‑end layer).[web:92][web:100]</li>
+            <li>Telehealth positioned for general consults, not specialised digital therapeutics.[web:95][web:101][web:105]</li>
+          </ul>
+        </div>
+
+        <div class="bg-sky-50 border border-sky-100 rounded-xl p-4">
+          <div class="text-xs font-semibold text-sky-700 uppercase mb-1">Opportunities (for us)</div>
+          <ul class="list-disc list-inside text-sky-900 swot-list space-y-1.5">
+            <li>Own clinical depth (chronic care, mental health, digital therapeutics) where BookDoc is thinner.[web:93][web:97][web:100]</li>
+            <li>Deliver a stronger CFO/insurer value story around claims reduction and productivity, not just engagement.</li>
+            <li>Integrate more tightly with HR/benefits, TPAs, and panel billing to be “in the money flow”.</li>
+            <li>Provide vertical‑specific solutions (e.g., manufacturing, logistics) that go beyond generic wellness events.</li>
+          </ul>
+        </div>
+
+        <div class="bg-amber-50 border border-amber-100 rounded-xl p-4">
+          <div class="text-xs font-semibold text-amber-700 uppercase mb-1">Threats (to us)</div>
+          <ul class="list-disc list-inside text-amber-900 swot-list space-y-1.5">
+            <li>Strong consumer brand and app downloads give them direct access to users.[web:94][web:95][web:106]</li>
+            <li>Network and reward partnerships make them attractive to corporates and insurers as a turnkey wellness partner.[web:93][web:97][web:98][web:103]</li>
+            <li>Regional presence and backing from high‑profile investors enable rapid expansion.[web:99][web:104]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to win -->
+    <section id="playbook" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+      <h2 class="text-xl font-semibold">How we win: strategy vs. BookDoc</h2>
+
+      <!-- Accordions -->
+      <div class="space-y-3 text-sm">
+        <details class="group border border-slate-200 rounded-xl px-4 py-3">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <span class="font-semibold text-slate-800">
+              1. Compete on outcomes, not just access
+            </span>
+            <span class="text-xs text-slate-500 group-open:rotate-90 transition-transform">›</span>
+          </summary>
+          <div class="pt-2 text-slate-700 space-y-1.5">
+            <p>BookDoc wins on convenience and engagement; we should win on measurable clinical and cost outcomes (chronic risk, absenteeism, claims).[web:93][web:97][web:100]</p>
+            <p>Anchor our product in evidence‑based programmes and ROI reports rather than only activity challenges.</p>
+          </div>
+        </details>
+
+        <details class="group border border-slate-200 rounded-xl px-4 py-3">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <span class="font-semibold text-slate-800">
+              2. Go deeper on corporate & insurer integration
+            </span>
+            <span class="text-xs text-slate-500 group-open:rotate-90 transition-transform">›</span>
+          </summary>
+          <div class="pt-2 text-slate-700 space-y-1.5">
+            <p>Integrate tightly with HR systems, TPAs, and benefits platforms so interventions are linked to claims, panel usage, and costs.[web:100][web:105]</p>
+            <p>Make it easy for insurers to bundle our solution as a risk‑reduction benefit, similar to (but deeper than) BookDoc’s wellness partnerships.[web:97][web:100]</p>
+          </div>
+        </details>
+
+        <details class="group border border-slate-200 rounded-xl px-4 py-3">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <span class="font-semibold text-slate-800">
+              3. Out‑specialise them in key verticals
+            </span>
+            <span class="text-xs text-slate-500 group-open:rotate-90 transition-transform">›</span>
+          </summary>
+          <div class="pt-2 text-slate-700 space-y-1.5">
+            <p>Design sector‑tailored journeys (e.g., shift work, fatigue, ergonomics, safety) where generic Activ challenges are insufficient.</p>
+            <p>Offer industry‑specific dashboards and interventions that speak directly to line managers and HSE teams.</p>
+          </div>
+        </details>
+
+        <details class="group border border-slate-200 rounded-xl px-4 py-3">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <span class="font-semibold text-slate-800">
+              4. Blend rewards with clinical progression
+            </span>
+            <span class="text-xs text-slate-500 group-open:rotate-90 transition-transform">›</span>
+          </summary>
+          <div class="pt-2 text-slate-700 space-y-1.5">
+            <p>BookDoc Activ rewards steps; we can reward completion of clinically meaningful milestones (screenings, medication adherence, coaching sessions).[web:95][web:98][web:103]</p>
+            <p>Use gamification to drive actual health outcomes and not just step counts.</p>
+          </div>
+        </details>
+
+        <details class="group border border-slate-200 rounded-xl px-4 py-3">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <span class="font-semibold text-slate-800">
+              5. Own trust and depth in care delivery
+            </span>
+            <span class="text-xs text-slate-500 group-open:rotate-90 transition-transform">›</span>
+          </summary>
+          <div class="pt-2 text-slate-700 space-y-1.5">
+            <p>Invest in high‑quality telehealth networks, care teams, and protocols to deliver more complex care than BookDoc’s general consults.[web:95][web:101][web:105]</p>
+            <p>Position ourselves as a long‑term health partner, not just a directory and rewards app.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="mt-4 overflow-x-auto text-xs">
+        <table class="min-w-full border border-slate-200 rounded-lg overflow-hidden">
+          <thead class="bg-slate-100">
+            <tr>
+              <th class="px-3 py-2 text-left font-semibold text-slate-700">Dimension</th>
+              <th class="px-3 py-2 text-left font-semibold text-slate-700">BookDoc</th>
+              <th class="px-3 py-2 text-left font-semibold text-slate-700">Our target position</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr>
+              <td class="px-3 py-2">Core identity</td>
+              <td class="px-3 py-2">One‑stop health app: search, teleconsult, Activ rewards.[web:92][web:95][web:94]</td>
+              <td class="px-3 py-2">Clinical & corporate outcomes engine atop access & benefits.</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2">Target buyers</td>
+              <td class="px-3 py-2">Consumers, corporates for wellness, insurers for engagement.[web:92][web:93][web:97]</td>
+              <td class="px-3 py-2">Corporates & insurers prioritising cost, risk, and productivity.</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2">Network</td>
+              <td class="px-3 py-2">Multi‑country providers, 40k+ professionals, many merchants.[web:95][web:99][web:103]</td>
+              <td class="px-3 py-2">Fewer but deeper networks tightly integrated with benefits and data.</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2">Strength</td>
+              <td class="px-3 py-2">Convenience, engagement, partner ecosystem.[web:92][web:95][web:98][web:103]</td>
+              <td class="px-3 py-2">Evidence‑based health improvement and cost reduction.</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2">Expansion</td>
+              <td class="px-3 py-2">Corporate wellness, insurance & regional coverage.[web:93][web:97][web:99][web:104]</td>
+              <td class="px-3 py-2">Deeper integration with HR/TPA/insurers plus specialised care pathways.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Tabs
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-panel');
+        tabPanels.forEach(panel => {
+          panel.classList.toggle('hidden', panel.id !== target);
+        });
+        tabButtons.forEach(b => {
+          b.classList.remove('bg-slate-900', 'text-white');
+          b.classList.add('bg-white');
+        });
+        btn.classList.add('bg-slate-900', 'text-white');
+      });
+    });
+
+    // SWOT compact/full toggle
+    const swotToggle = document.getElementById('toggle-swot');
+    const swotLists = document.querySelectorAll('.swot-list');
+    let swotCompact = false;
+
+    swotToggle.addEventListener('click', () => {
+      swotCompact = !swotCompact;
+      swotLists.forEach(list => {
+        const items = list.querySelectorAll('li');
+        items.forEach((li, index) => {
+          if (index > 2) li.classList.toggle('hidden', swotCompact);
+        });
+      });
+    });
+
+    // Momentum chart (illustrative)
+    const ctx = document.getElementById('momentumChart');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Access & convenience', 'Corporate wellness', 'Clinical depth', 'Benefits integration'],
+          datasets: [
+            {
+              label: 'BookDoc (perceived)',
+              data: [9, 8, 5, 5],
+              backgroundColor: 'rgba(59, 130, 246, 0.7)'
+            },
+            {
+              label: 'Us (target)',
+              data: [7, 8, 9, 9],
+              backgroundColor: 'rgba(16, 185, 129, 0.7)'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 10
+            }
+          },
+          plugins: {
+            legend: { position: 'bottom' }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
