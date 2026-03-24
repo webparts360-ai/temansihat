@@ -9,17 +9,17 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #FAFAF9; color: #292524; }
-        .chart-container { 
-            position: relative; 
-            width: 100%; 
-            max-width: 800px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            height: 350px; 
-            max-height: 400px; 
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
         }
-        @media (min-width: 768px) { 
-            .chart-container { height: 400px; } 
+        @media (min-width: 768px) {
+            .chart-container { height: 400px; }
         }
         .nav-active { border-bottom: 2px solid #0F766E; color: #0F766E; font-weight: 600; }
         .tab-active { background-color: #0F766E; color: white; }
@@ -29,10 +29,10 @@
 <body class="antialiased">
 
     <!-- Chosen Palette: Warm Neutrals with Teal Accents (Stone-50 background, Teal-700 primary actions, Stone-800 typography) -->
-    
+
     <!-- Application Structure Plan: The SPA is structured as a continuous scrolling executive dashboard, moving from the macro (global landscape) to the micro (Malaysian comparison), followed by future tech (AI) and regulatory frameworks. This linear flow prevents cognitive overload. Navigation is sticky for quick jumps. Interactive charts allow users to compare functionalities and adoption rates dynamically without leaving the context of the analysis. -->
 
-    <!-- Visualization & Content Choices: 
+    <!-- Visualization & Content Choices:
     1. Landscape Radar Chart -> Goal: Compare feature breadth -> Viz: Chart.js Radar -> Interaction: Hover for exact scores, toggle datasets -> Library: Chart.js Canvas. (No SVG).
     2. Adoption Bar Chart -> Goal: Compare market penetration -> Viz: Chart.js Bar -> Interaction: Tooltips & category isolation -> Library: Chart.js Canvas. (No SVG).
     3. Policy Grid -> Goal: Organize text data -> Viz: HTML/CSS Grid Cards -> Interaction: Hover effects for readability -> Method: Tailwind CSS. (No SVG).
@@ -89,11 +89,11 @@
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-stone-900 mb-3">Functionality Landscape: Global vs. Malaysia</h2>
                 <p class="text-stone-600 leading-relaxed">
-                    This section maps the core functionalities of top-tier applications. Global apps generally offer a broader, standardized suite of emergency features, while Malaysian apps have rapidly caught up in B2B HR integrations and localized outpatient care (Panel Clinics). 
+                    This section maps the core functionalities of top-tier applications. Global apps generally offer a broader, standardized suite of emergency features, while Malaysian apps have rapidly caught up in B2B HR integrations and localized outpatient care (Panel Clinics).
                     <br><strong class="text-teal-700">Interaction:</strong> Hover over the radar points to see specific capability scores (0-10) for each feature category. Use the legend to toggle the visibility of Global vs. Local data.
                 </p>
             </div>
-            
+
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
                 <div class="flex justify-center mb-6 space-x-4">
                     <button id="btn-all-features" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors tab-active">Combined View</button>
@@ -101,22 +101,22 @@
                     <button id="btn-well-features" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors tab-inactive">Wellness Only</button>
                 </div>
                 <div class="chart-container">
-                    <canvas id="functionalityChart"></canvas>
+                    anvas id="functionalityChart"></canvas>
                 </div>
                 <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-stone-600">
                     <div class="p-4 bg-stone-50 rounded-lg">
-                        <strong class="block text-stone-800 mb-1">Top Global Players Evaluated:</strong></br>
-                        <a target="_blank" href="https://www.internationalsos.com/subscriber/assistance-app">International SOS(Emergency)</a>,</br>
-                        <a target="_blank" href="https://www.teladochealth.com/start/mobile">Teladoc (Telehealth)</a>,</br>
-                        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.gympass">Wellhub/Gympass(Wellness)</a>,</br>
+                        <strong class="block text-stone-800 mb-1">Top Global Players Evaluated:</strong><br>
+                        <a target="_blank" href="https://www.internationalsos.com/subscriber/assistance-app">International SOS (Emergency)</a><br>
+                        <a target="_blank" href="https://www.teladochealth.com/start/mobile">Teladoc (Telehealth)</a><br>
+                        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.gympass">Wellhub/Gympass (Wellness)</a><br>
                         <a target="_blank" href="https://organizations.headspace.com">Headspace for Work</a>.
                     </div>
                     <div class="p-4 bg-stone-50 rounded-lg">
-                        <strong class="block text-stone-800 mb-1">Top Malaysian Players Evaluated:</strong>
-                        <a href="https://healthmetrics.com" target="_blank">HealthMetrics (B2B Benefits)</a>,</br>
-                        <a href="https://campaign.naluri.life/naluri-app" target="_blank">Naluri (Chronic/Mental Health)</a>,</br>
-                        <a target="_blank" href="https://www.bookdoc.com/tele-consult/">BookDoc (Search/Telehealth)</a>,</br>
-                        <a target="_blank" href="https://www.doctoranywhere.my">DoctorAnywhere(Regional Telehealth)</a>.
+                        <strong class="block text-stone-800 mb-1">Top Malaysian Players Evaluated:</strong><br>
+                        <a href="https://healthmetrics.com" target="_blank">HealthMetrics (B2B Benefits)</a><br>
+                        <a href="https://campaign.naluri.life/naluri-app" target="_blank">Naluri (Chronic/Mental Health)</a><br>
+                        <a target="_blank" href="https://www.bookdoc.com/tele-consult/">BookDoc (Search/Telehealth)</a><br>
+                        <a target="_blank" href="https://www.doctoranywhere.my">DoctorAnywhere (Regional Telehealth)</a>.
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@
 
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
                 <div class="chart-container">
-                    <canvas id="adoptionChart"></canvas>
+                    anvas id="adoptionChart"></canvas>
                 </div>
                 <div class="mt-8 text-sm text-stone-600 leading-relaxed p-4 border-l-4 border-teal-600 bg-teal-50/30">
                     <strong>Key Insight:</strong> HealthMetrics and similar local platforms have an outsized adoption rate in Malaysia's B2B HR Integration sector because they directly solve the administrative pain point of localized "Panel Clinic" billing, a feature often overlooked by global telehealth giants.
@@ -147,7 +147,7 @@
                     <span class="text-4xl">🤖</span>
                     <h2 class="text-3xl font-bold">Special Report: The AI Triage Disruption</h2>
                 </div>
-                
+
                 <p class="text-stone-300 leading-relaxed mb-6 text-lg border-b border-stone-700 pb-6">
                     The impending widespread availability of AI triage and clinical documentation tools—spearheaded by global leaders like <strong class="text-white">Microsoft Dragon Ambient eXperience (DAX) Copilot</strong>—is poised to fundamentally restructure both corporate wellness and emergency medical apps.
                 </p>
@@ -155,10 +155,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="text-xl font-semibold text-teal-400 mb-3">Global Impact & Expectations</h3>
-                        <ul class="space-y-3 text-stone-300">
-                            <li class="flex items-start"><span class="mr-2 text-teal-500">▹</span> <strong>Zero-Click Documentation:</strong> DAX Copilot drafts clinical notes automatically from ambient conversations, reducing doctor burnout by an estimated 40%.</li>
-                            <li class="flex items-start"><span class="mr-2 text-teal-500">▹</span> <strong>Hyper-Fast Triage:</strong> Pre-consultation AI chatbots will handle 70% of initial emergency categorizations, routing critical cases faster in apps like Int. SOS.</li>
-                            <li class="flex items-start"><span class="mr-2 text-teal-500">▹</span> <strong>Cost vs. Value:</strong> Initial licensing costs will be high, forcing consolidation. Only premium global wellness apps will afford deep enterprise AI integration initially.</li>
+                        <ul class="space-y-3 text-stone-30000">
+                            ><span class="mr-2 text-teal-500">▹</span> <strong>Zero-Click Documentation:</strong> DAX Copilot drafts clinical notes automatically from ambient conversations, reducing doctor burnout by an estimated 40%.</l/li>
+                            ><span class="mr-2 text-teal-500">▹</span> <strong>Hyper-Fast Triage:</strong> Pre-consultation AI chatbots will handle 70% of initial emergency categorizations, routing critical cases faster in apps like Int. SOS.</l/li>
+                            ><span class="mr-2 text-teal-500">▹</span> <strong>Cost vs. Value:</strong> Initial licensing costs will be high, forcing consolidation. Only premium global wellness apps will afford deep enterprise AI integration initially.</li>
                         </ul>
                     </div>
                     <div class="bg-stone-800/50 p-6 rounded-xl border border-stone-700">
@@ -166,279 +166,6 @@
                         <p class="text-stone-300 mb-4 text-sm">
                             While global rollouts are accelerating, the Malaysian market faces unique friction points and opportunities regarding DAX Copilot and similar tools:
                         </p>
-                        <ul class="space-y-2 text-sm text-stone-400">
-                            <li><strong>Language Localization:</strong> AI must accurately process 'Manglish', Bahasa Malaysia dialects, and Mandarin/Tamil code-switching to be effective in local telehealth.</li>
-                            <li><strong>Local App Integration:</strong> Platforms like BookDoc and DoctorAnywhere will likely license white-labeled AI triage APIs rather than build proprietary ambient listening tech.</li>
-                            <li><strong>Leapfrogging:</strong> Malaysian rural healthcare (via corporate CSR initiatives) could leapfrog traditional clinic infrastructure entirely if AI triage becomes cheap enough on mobile.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="policy" class="scroll-mt-20 pb-16">
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold text-stone-900 mb-3">Malaysian Public Health & Government Policies</h2>
-                <p class="text-stone-600 leading-relaxed">
-                    Operating a digital health or corporate wellness platform in Malaysia requires strict adherence to localized regulatory frameworks. Below is an overview of the critical policies impacting this space.
-                    <br><strong class="text-teal-700">Interaction:</strong> Review the cards below to understand the regulatory constraints and enablers for health apps operating in Malaysia.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center text-2xl mb-4">⚖️</div>
-                    <h3 class="font-bold text-lg text-stone-900 mb-2">PDPA 2010 (Data Protection)</h3>
-                    <p class="text-sm text-stone-600 mb-4">The Personal Data Protection Act stringently governs medical records. Health data is classified as "Sensitive Personal Data," requiring explicit, informed consent for processing by apps like HealthMetrics or Naluri.</p>
-                    <div class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Impact: High Compliance Cost</div>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center text-2xl mb-4">🏥</div>
-                    <h3 class="font-bold text-lg text-stone-900 mb-2">MOH Telemedicine Act 1997</h3>
-                    <p class="text-sm text-stone-600 mb-4">Though dated, the framework dictates that teleconsultations must be conducted by fully registered medical practitioners with the Malaysian Medical Council (MMC). Global apps must utilize local doctor networks.</p>
-                    <div class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Impact: Localization Required</div>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center text-2xl mb-4">📱</div>
-                    <h3 class="font-bold text-lg text-stone-900 mb-2">Digital Health Blueprint</h3>
-                    <p class="text-sm text-stone-600 mb-4">Post-pandemic (MySejahtera legacy), the government is pushing for interoperability. Future policies will likely mandate that corporate health apps integrate with a National Electronic Health Record (EHR) system.</p>
-                    <div class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Impact: Future Integration Needed</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="assessment" class="scroll-mt-20 pb-16">
-    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-8 shadow-sm">
-        <div class="flex items-center space-x-3 mb-6">
-            <span class="text-3xl">⚖️</span>
-            <h2 class="text-3xl font-bold text-stone-900">Founder's Assessment: The Brutal Reality</h2>
-        </div>
-
-        <p class="text-stone-700 leading-relaxed mb-8 italic border-l-4 border-amber-400 pl-4">
-            "The Malaysian health-tech moat isn't your code—it's your clinic contracts and HRD Corp claimability. If you can't facilitate a 'cashless' walk-in in Shah Alam, you're just a pretty interface."
-        </p>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div class="space-y-6">
-                <h3 class="text-xl font-bold text-stone-800 flex items-center">
-                    <span class="bg-stone-800 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">1</span> 
-                    The Competitive "Squeeze"
-                </h3>
-                <div class="space-y-4">
-                    <div class="p-4 bg-white rounded-lg border border-stone-200">
-                        <span class="font-bold text-teal-700 block mb-1">Top-Down: Global Giants</span>
-                        <p class="text-sm text-stone-600">MNCs stick with International SOS for "Duty of Care" liability coverage that startups simply cannot underwrite yet.</p>
-                    </div>
-                    <div class="p-4 bg-white rounded-lg border border-stone-200">
-                        <span class="font-bold text-teal-700 block mb-1">Bottom-Up: Local Incumbents</span>
-                        <p class="text-sm text-stone-600">Naluri and HealthMetrics have already locked in GLCs and SMEs via HRD Corp claimable wellness modules.</p>
-                    </div>
-                </div>
-                
-                <div class="mt-6 p-4 bg-stone-900 text-stone-300 rounded-xl text-sm">
-                    <strong class="text-amber-400 block mb-1">The Copilot Threat:</strong> 
-                    As Microsoft Dragon makes AI triage a "commodity," standalone chatbots will die. You must provide <strong>physical fulfillment</strong> (meds, ambulances, or humans) to survive.
-                </div>
-            </div>
-
-            <div class="space-y-6">
-                <h3 class="text-xl font-bold text-stone-800 flex items-center">
-                    <span class="bg-stone-800 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">2</span> 
-                    The 24-Month Journey
-                </h3>
-                <div class="relative border-l-2 border-stone-200 ml-3 pl-6 space-y-8">
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-teal-600 border-4 border-white"></div>
-                        <span class="text-xs font-bold text-teal-700 uppercase">Months 0-6: The Integration Hunt</span>
-                        <p class="text-sm text-stone-600">Don't build an app; build a plug-in. Partner with a TPA to ride their existing clinic network.</p>
-                    </div>
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-stone-300 border-4 border-white"></div>
-                        <span class="text-xs font-bold text-stone-500 uppercase">Months 6-12: Claimability Validation</span>
-                        <p class="text-sm text-stone-600">Secure HRD Corp status. In Malaysia, if it's not claimable, it's not scalable for SMEs.</p>
-                    </div>
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-stone-300 border-4 border-white"></div>
-                        <span class="text-xs font-bold text-stone-500 uppercase">Months 12-24: The B2G Leap</span>
-                        <p class="text-sm text-stone-600">Align with the National Health White Paper. Pivot to reducing public hospital congestion.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-    </main>
-
-    <footer class="bg-stone-900 text-stone-400 py-8 text-center text-sm">
-        <div class="max-w-7xl mx-auto px-4">
-            <p>© 2026 HealthTech Analysis curated by AI, prompted by Rico.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            Chart.defaults.font.family = "'Inter', sans-serif";
-            Chart.defaults.color = '#57534E';
-
-            const radarDataAll = {
-                labels: ['Teleconsultation', 'Emergency Evac/Dispatch', 'Mental Health Support', 'Chronic Disease Mgmt', 'HR & Panel Integration', 'Fitness & Habit Tracking'],
-                datasets: [
-                    {
-                        label: 'Global Leaders Avg (e.g., Teladoc, Int. SOS)',
-                        data: [9.5, 9.8, 8.0, 7.5, 6.0, 8.5],
-                        backgroundColor: 'rgba(15, 118, 110, 0.2)',
-                        borderColor: 'rgba(15, 118, 110, 1)',
-                        pointBackgroundColor: 'rgba(15, 118, 110, 1)',
-                        borderWidth: 2
-                    },
-                    {
-                        label: 'Malaysia Leaders Avg (e.g., HealthMetrics, Naluri)',
-                        data: [8.5, 4.0, 9.0, 8.5, 9.5, 7.0],
-                        backgroundColor: 'rgba(217, 119, 6, 0.2)',
-                        borderColor: 'rgba(217, 119, 6, 1)',
-                        pointBackgroundColor: 'rgba(217, 119, 6, 1)',
-                        borderWidth: 2
-                    }
-                ]
-            };
-
-            const radarDataMed = {
-                labels: ['Teleconsultation', 'Emergency Evac/Dispatch', 'Prescription Delivery'],
-                datasets: [
-                    { label: 'Global', data: [9.5, 9.8, 7.0], borderColor: 'rgba(15, 118, 110, 1)', backgroundColor: 'rgba(15, 118, 110, 0.2)', borderWidth: 2 },
-                    { label: 'Malaysia', data: [8.5, 4.0, 9.5], borderColor: 'rgba(217, 119, 6, 1)', backgroundColor: 'rgba(217, 119, 6, 0.2)', borderWidth: 2 }
-                ]
-            };
-
-            const radarDataWell = {
-                labels: ['Mental Health', 'Chronic Disease', 'Fitness Tracking', 'HR Integration'],
-                datasets: [
-                    { label: 'Global', data: [8.0, 7.5, 8.5, 6.0], borderColor: 'rgba(15, 118, 110, 1)', backgroundColor: 'rgba(15, 118, 110, 0.2)', borderWidth: 2 },
-                    { label: 'Malaysia', data: [9.0, 8.5, 7.0, 9.5], borderColor: 'rgba(217, 119, 6, 1)', backgroundColor: 'rgba(217, 119, 6, 0.2)', borderWidth: 2 }
-                ]
-            };
-
-            const ctxRadar = document.getElementById('functionalityChart').getContext('2d');
-            let functionalityChart = new Chart(ctxRadar, {
-                type: 'radar',
-                data: radarDataAll,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: { color: '#E7E5E4' },
-                            grid: { color: '#E7E5E4' },
-                            pointLabels: { font: { size: 12, weight: '600' }, color: '#292524' },
-                            suggestedMin: 0,
-                            suggestedMax: 10
-                        }
-                    },
-                    plugins: {
-                        legend: { position: 'bottom' },
-                        tooltip: {
-                            backgroundColor: 'rgba(41, 37, 36, 0.9)',
-                            padding: 12,
-                            titleFont: { size: 14 },
-                            bodyFont: { size: 13 }
-                        }
-                    }
-                }
-            });
-
-            const btnAll = document.getElementById('btn-all-features');
-            const btnMed = document.getElementById('btn-med-features');
-            const btnWell = document.getElementById('btn-well-features');
-
-            function updateRadar(dataObj, activeBtn) {
-                functionalityChart.data = dataObj;
-                functionalityChart.update();
-                
-                [btnAll, btnMed, btnWell].forEach(btn => {
-                    btn.classList.remove('tab-active');
-                    btn.classList.add('tab-inactive');
-                });
-                activeBtn.classList.remove('tab-inactive');
-                activeBtn.classList.add('tab-active');
-            }
-
-            btnAll.addEventListener('click', () => updateRadar(radarDataAll, btnAll));
-            btnMed.addEventListener('click', () => updateRadar(radarDataMed, btnMed));
-            btnWell.addEventListener('click', () => updateRadar(radarDataWell, btnWell));
-
-            const ctxBar = document.getElementById('adoptionChart').getContext('2d');
-            new Chart(ctxBar, {
-                type: 'bar',
-                data: {
-                    labels: ['MNCs in MY', 'Large Local Corps', 'SMEs', 'Individual/Direct'],
-                    datasets: [
-                        {
-                            label: 'Global Apps Penetration (%)',
-                            data: [85, 40, 10, 25],
-                            backgroundColor: 'rgba(15, 118, 110, 0.8)',
-                            borderRadius: 4
-                        },
-                        {
-                            label: 'Local Apps Penetration (%)',
-                            data: [35, 75, 80, 45],
-                            backgroundColor: 'rgba(217, 119, 6, 0.8)',
-                            borderRadius: 4
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            grid: { color: '#F5F5F4' },
-                            title: { display: true, text: 'Estimated Market Penetration (%)' }
-                        },
-                        x: {
-                            grid: { display: false }
-                        }
-                    },
-                    plugins: {
-                        legend: { position: 'top' },
-                        tooltip: {
-                            backgroundColor: 'rgba(41, 37, 36, 0.9)',
-                            padding: 12,
-                            callbacks: {
-                                label: function(context) {
-                                    return context.dataset.label + ': ' + context.parsed.y + '%';
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            const sections = document.querySelectorAll("section");
-            const navLi = document.querySelectorAll(".nav-link");
-            
-            window.addEventListener("scroll", () => {
-                let current = "";
-                sections.forEach((section) => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= sectionTop - 150) {
-                        current = section.getAttribute("id");
-                    }
-                });
-
-                navLi.forEach((a) => {
-                    a.classList.remove("nav-active");
-                    if (a.getAttribute("href").includes(current) && current !== "") {
-                        a.classList.add("nav-active");
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+                        <ul class="space-y-2 text-sm text-stone-40000">
+                            ><strong>Language Localization:</strong> AI must accurately process 'Manglish', Bahasa Malaysia dialects, and Mandarin/Tamil code-switching to be effective in local telehealth.</l/li>
+                            ><strong>Local App Integration:</strong> Platforms like BookDoc 
