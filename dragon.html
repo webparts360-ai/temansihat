@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Dragon: Copilot Agent Licensing</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            800: '#292524',
+                            900: '#1c1917',
+                        },
+                        brand: {
+                            light: '#e0e7ff', // indigo-100
+                            DEFAULT: '#4f46e5', // indigo-600
+                            dark: '#312e81', // indigo-900
+                            accent: '#0ea5e9' // sky-500
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Segoe UI', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Essential Chart Container Constraints */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 640px) {
+            .chart-container { height: 250px; }
+        }
+
+        /* Custom Scrollbar for clean look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f5f5f4; }
+        ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
+
+        /* Smooth transitions */
+        .tab-content { display: none; opacity: 0; transition: opacity 0.3s ease-in-out; }
+        .tab-content.active { display: block; opacity: 1; }
+        
+        /* Interactive Card Hover */
+        .hover-card { transition: transform 0.2s, box-shadow 0.2s; }
+        .hover-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+    </style>
+
+    <!--
+    Placeholder Comments Required:
+    
+    Chosen Palette: "Corporate Trust" (Stone neutrals, Indigo primaries, Sky blue accents). Chosen to convey professional, reliable enterprise software architecture.
+    
+    Application Structure Plan: 
+    1. Hero/Intro: Establishes context for "Project Dragon" (Custom Partner Agents).
+    2. Architecture Overview: A visual HTML/CSS node diagram explaining how data connects to different user types.
+    3. Licensing Matrix (Tabs): Segregates complex licensing into 'Internal' and 'External' to reduce cognitive load. This is crucial because MS licensing changes fundamentally across these boundaries.
+    4. Interactive Estimator: A dashboard tool allowing users to play with numbers (employees vs external queries) to instantly visualize cost and license distribution.
+    *Why this structure?* Licensing is dry and complex. A linear report is hard to parse. This SPA breaks it down by user persona (who are we licensing?) and ends with a practical tool to ground the theory in real numbers.
+    
+    Visualization & Content Choices:
+    - Goal: Explain data flow -> Viz: HTML/CSS Node Diagram -> Interaction: Hover effects on nodes -> Justification: Shows how internal vs external access routes differ without using SVGs.
+    - Goal: Compare Licensing -> Viz: Tabbed Cards -> Interaction: Click tabs -> Justification: Keeps UI clean; prevents overwhelming the user with all rules at once.
+    - Goal: Estimate Costs -> Viz: Doughnut Chart (Chart.js) + Dynamic Text -> Interaction: Range sliders -> Justification: Allows immediate exploration of ROI and budget scaling. Doughnut shows the proportion of internal vs external costs clearly.
+    
+    CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-brand-dark text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <span class="text-2xl">🐉</span>
+                    <span class="font-bold text-xl tracking-wide">Project Dragon</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="hover:bg-brand px-3 py-2 rounded-md text-sm font-medium transition-colors">Architecture</a>
+                        <a href="#internal" class="hover:bg-brand px-3 py-2 rounded-md text-sm font-medium transition-colors">Internal Users</a>
+                        <a href="#external" class="hover:bg-brand px-3 py-2 rounded-md text-sm font-medium transition-colors">External Users</a>
+                        <a href="#estimator" class="bg-brand-accent hover:bg-sky-400 text-brand-dark font-bold px-4 py-2 rounded-md text-sm transition-colors">Cost Estimator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-white border-b border-stone-200 py-12 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-brand-dark mb-4">
+                Copilot Agent Licensing Guide
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-stone-600">
+                A strategic breakdown of Microsoft Copilot licensing for custom agents connecting organizational data to solve business problems across employees, partners, and customers.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <!-- SECTION: Overview & Architecture -->
+        <section id="overview" class="scroll-mt-24">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-stone-900">Agent Architecture & Access</h2>
+                <p class="mt-4 text-stone-600 max-w-3xl mx-auto">
+                    When building a custom agent ("Project Dragon") that connects to your organization's backend data, the licensing model shifts dramatically depending on <strong>who</strong> is interacting with the agent. The diagram below illustrates the fundamental divide.
+                </p>
+            </div>
+
+            <!-- HTML/CSS Diagram -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-200 overflow-x-auto">
+                <div class="min-w-[700px] flex flex-col items-center gap-8">
+                    
+                    <!-- Data Source Node -->
+                    <div class="bg-stone-800 text-white px-6 py-4 rounded-lg shadow-md text-center w-64 border-b-4 border-brand-accent">
+                        <div class="text-3xl mb-2">🗄️</div>
+                        <h3 class="font-bold">Organizational Data</h3>
+                        <p class="text-xs text-stone-300">SharePoint, Dataverse, APIs</p>
+                    </div>
+
+                    <!-- Connectors -->
+                    <div class="flex gap-4 items-center h-8">
+                        <div class="w-1 h-full bg-stone-300"></div>
+                    </div>
+
+                    <!-- The Copilot Node -->
+                    <div class="bg-brand text-white px-8 py-5 rounded-xl shadow-lg text-center w-80 relative transform transition hover:scale-105">
+                        <div class="text-4xl mb-2">🤖</div>
+                        <h3 class="font-bold text-xl">Project Dragon Agent</h3>
+                        <p class="text-sm text-brand-light mt-1">Built via Copilot Studio</p>
+                    </div>
+
+                    <!-- Split Routes -->
+                    <div class="w-full max-w-2xl flex justify-between relative mt-4">
+                        <!-- Connecting lines (CSS) -->
+                        <div class="absolute top-0 left-1/4 right-1/4 h-1 border-t-2 border-stone-300 border-dashed"></div>
+                        <div class="absolute top-0 left-1/4 w-1 h-8 border-l-2 border-stone-300 border-dashed"></div>
+                        <div class="absolute top-0 right-1/4 w-1 h-8 border-r-2 border-stone-300 border-dashed"></div>
+                        
+                        <!-- Internal Route -->
+                        <div class="mt-8 w-64 bg-stone-50 border border-stone-200 rounded-lg p-5 text-center shadow-sm hover-card">
+                            <div class="text-3xl mb-2 text-brand">👥</div>
+                            <h4 class="font-bold text-stone-900">Internal Employees</h4>
+                            <p class="text-sm text-stone-600 mt-2">Access via Teams or M365</p>
+                            <span class="inline-block mt-3 px-2 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded">Per-User Licensing</span>
+                        </div>
+
+                        <!-- External Route -->
+                        <div class="mt-8 w-64 bg-stone-50 border border-stone-200 rounded-lg p-5 text-center shadow-sm hover-card">
+                            <div class="text-3xl mb-2 text-brand-accent">🌐</div>
+                            <h4 class="font-bold text-stone-900">External Users</h4>
+                            <p class="text-sm text-stone-600 mt-2">Customers, Partners, Suppliers</p>
+                            <span class="inline-block mt-3 px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded">Capacity Licensing</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Licensing Matrices -->
+        <section id="licensing-details" class="scroll-mt-24">
+            
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-stone-900 text-center">Detailed Licensing Matrix</h2>
+                <p class="mt-4 text-stone-600 max-w-3xl mx-auto text-center">
+                    Select a user persona below to understand the specific licenses required to operate the agent.
+                </p>
+            </div>
+
+            <!-- Custom Tabs -->
+            <div class="flex justify-center mb-8 border-b border-stone-200">
+                <button onclick="switchTab('internal')" id="tab-internal" class="px-8 py-4 text-lg font-semibold border-b-4 border-brand text-brand transition-colors">Internal (Employees)</button>
+                <button onclick="switchTab('external')" id="tab-external" class="px-8 py-4 text-lg font-semibold border-b-4 border-transparent text-stone-500 hover:text-stone-700 transition-colors">External (Customers/Partners)</button>
+            </div>
+
+            <!-- Internal Tab Content -->
+            <div id="content-internal" class="tab-content active bg-white p-8 rounded-xl shadow-sm border border-stone-200">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="p-3 bg-brand-light text-brand rounded-lg text-2xl">🏢</div>
+                    <h3 class="text-2xl font-bold text-stone-900">Employee Licensing Requirements</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <p class="text-stone-700">
+                            When internal employees interact with a custom agent connecting to organizational data, Microsoft requires per-user licensing. The specific license depends on *where* the agent is surfaced.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand mt-1">✔️</span>
+                                <div>
+                                    <strong class="block text-stone-900">Surfaced in M365 (Word, Teams, Copilot app)</strong>
+                                    <span class="text-sm text-stone-600">Requires a <strong>Copilot for Microsoft 365</strong> license for every user interacting with the agent.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand mt-1">✔️</span>
+                                <div>
+                                    <strong class="block text-stone-900">Surfaced as a Standalone Web App / Power Page</strong>
+                                    <span class="text-sm text-stone-600">Users need standard M365/Office 365 licenses, but the *tenant* requires Copilot Studio Message Capacity.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand mt-1">✔️</span>
+                                <div>
+                                    <strong class="block text-stone-900">Development (The Builders)</strong>
+                                    <span class="text-sm text-stone-600">Developers need a <strong>Copilot Studio</strong> license to build and manage the connections.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-lg border border-stone-200">
+                        <h4 class="font-bold text-stone-900 mb-4 border-b pb-2">Internal Cost Structure</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-stone-700">Copilot for M365</span>
+                                <span class="font-mono bg-white px-2 py-1 rounded border">~$30 / user / mo</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-stone-700">Copilot Studio (Tenant Base)</span>
+                                <span class="font-mono bg-white px-2 py-1 rounded border">~$200 / mo</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-sm text-stone-500 italic">
+                            * Note: Prices are estimates based on standard commercial pricing and may vary by Enterprise Agreement.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- External Tab Content -->
+            <div id="content-external" class="tab-content bg-white p-8 rounded-xl shadow-sm border border-stone-200">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="p-3 bg-brand-light text-brand rounded-lg text-2xl">🤝</div>
+                    <h3 class="text-2xl font-bold text-stone-900">External User Licensing (Customers, Suppliers, Partners)</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <p class="text-stone-700">
+                            External users <strong>do not require individual user licenses</strong> (like Copilot for M365). Instead, Microsoft uses a consumption-based model based on "Billed Messages".
+                        </p>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 my-4">
+                            <p class="text-sm text-amber-800 font-medium">Key Distinction: External users cannot access Copilot inside internal M365 apps. They must access the agent via a custom portal, website, or Teams Guest Access.</p>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand-accent mt-1">✔️</span>
+                                <div>
+                                    <strong class="block text-stone-900">Copilot Studio Message Capacity</strong>
+                                    <span class="text-sm text-stone-600">You purchase "packs" of messages. A message is triggered when the external user sends a prompt and the agent responds.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand-accent mt-1">✔️</span>
+                                <div>
+                                    <strong class="block text-stone-900">Authentication (Optional)</strong>
+                                    <span class="text-sm text-stone-600">If connecting to secure supplier/partner data, you may need Power Pages authenticated user capacity, billed per login.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-lg border border-stone-200">
+                        <h4 class="font-bold text-stone-900 mb-4 border-b pb-2">External Cost Structure</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-stone-700">Tenant Base License</span>
+                                <span class="font-mono bg-white px-2 py-1 rounded border">25,000 msgs incl.</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-stone-700">Add-on Capacity Pack</span>
+                                <span class="font-mono bg-white px-2 py-1 rounded border">~$200 / 25k msgs</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-sm text-stone-500">
+                            <p><strong>Example:</strong> A customer support agent serving 10,000 customers who send an average of 5 messages a month = 50,000 messages.</p>
+                            <p class="mt-1">Required: 1 Base ($200) + 1 Add-on ($200) = $400/month total.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION: Interactive Estimator -->
+        <section id="estimator" class="bg-brand-dark rounded-2xl p-8 md:p-12 text-white shadow-xl scroll-mt-24">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold">Interactive Cost Estimator</h2>
+                <p class="mt-2 text-brand-light">Adjust the sliders to simulate your user base and visualize the monthly licensing requirements and estimated costs.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Controls -->
+                <div class="lg:col-span-5 space-y-8">
+                    
+                    <!-- Internal Slider -->
+                    <div class="bg-white/10 p-6 rounded-xl border border-white/20">
+                        <div class="flex justify-between items-end mb-4">
+                            <label class="font-bold text-lg flex items-center gap-2">
+                                <span>👥</span> Internal Employees
+                            </label>
+                            <span id="val-internal" class="text-2xl font-mono text-brand-accent">100</span>
+                        </div>
+                        <p class="text-xs text-brand-light mb-4">Employees using Copilot for M365 to access the agent.</p>
+                        <input type="range" id="slider-internal" min="0" max="5000" step="50" value="100" class="w-full h-2 bg-white/30 rounded-lg appearance-none cursor-pointer accent-brand-accent">
+                        <div class="flex justify-between text-xs text-white/50 mt-2 font-mono">
+                            <span>0</span>
+                            <span>5,000</span>
+                        </div>
+                    </div>
+
+                    <!-- External Slider -->
+                    <div class="bg-white/10 p-6 rounded-xl border border-white/20">
+                        <div class="flex justify-between items-end mb-4">
+                            <label class="font-bold text-lg flex items-center gap-2">
+                                <span>🌐</span> Ext. Monthly Messages
+                            </label>
+                            <span id="val-external" class="text-2xl font-mono text-brand-accent">10,000</span>
+                        </div>
+                        <p class="text-xs text-brand-light mb-4">Total queries/prompts from customers, suppliers, or partners.</p>
+                        <input type="range" id="slider-external" min="0" max="250000" step="5000" value="10000" class="w-full h-2 bg-white/30 rounded-lg appearance-none cursor-pointer accent-brand-accent">
+                        <div class="flex justify-between text-xs text-white/50 mt-2 font-mono">
+                            <span>0</span>
+                            <span>250k</span>
+                        </div>
+                    </div>
+
+                    <!-- Readout panel -->
+                    <div class="pt-4 border-t border-white/20">
+                        <div class="text-lg">Estimated Monthly Total:</div>
+                        <div id="total-cost" class="text-5xl font-bold text-brand-accent mt-2 font-mono">$3,200</div>
+                    </div>
+
+                </div>
+
+                <!-- Visualization -->
+                <div class="lg:col-span-7 bg-white rounded-xl p-6 text-stone-900 flex flex-col justify-center shadow-inner">
+                    <h3 class="text-center font-bold text-xl mb-4 text-stone-800">Cost Distribution Breakdown</h3>
+                    
+                    <!-- CRITICAL: Strict Chart Container -->
+                    <div class="chart-container">
+                        <canvas id="costChart"></canvas>
+                    </div>
+
+                    <div id="breakdown-text" class="mt-6 text-sm text-stone-600 space-y-2 border-t pt-4">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-900 text-stone-400 py-8 text-center mt-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 Interactive Report Generator. For demonstration purposes based on standard Microsoft commercial licensing guidelines.</p>
+        </div>
+    </footer>
+
+    <!-- Application Logic -->
+    <script>
+        // --- State & Constants ---
+        const PRICING = {
+            copilotM365: 30, // Per user/month
+            studioBase: 200, // Includes 25k messages
+            studioCapacityPack: 200, // Per additional 25k messages
+            capacityThreshold: 25000
+        };
+
+        let myChart = null;
+
+        // --- DOM Elements ---
+        const sliderInternal = document.getElementById('slider-internal');
+        const sliderExternal = document.getElementById('slider-external');
+        const valInternal = document.getElementById('val-internal');
+        const valExternal = document.getElementById('val-external');
+        const totalCostEl = document.getElementById('total-cost');
+        const breakdownTextEl = document.getElementById('breakdown-text');
+
+        // --- Core Logic ---
+
+        // Format numbers with commas
+        const formatNum = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        const formatCurr = (num) => '$' + formatNum(num);
+
+        // Calculate Costs
+        function calculateCosts() {
+            const numEmployees = parseInt(sliderInternal.value);
+            const numMessages = parseInt(sliderExternal.value);
+
+            // Internal Cost: $30 * employees
+            const internalCost = numEmployees * PRICING.copilotM365;
+
+            // External Cost: Base ($200) + Additional packs
+            let externalCost = 0;
+            let capacityPacks = 0;
+            
+            if (numMessages > 0 || numEmployees > 0) {
+                // If they have ANY deployment, they need the base tenant license
+                externalCost += PRICING.studioBase;
+                capacityPacks = 1;
+            }
+
+            if (numMessages > PRICING.capacityThreshold) {
+                const additionalMessages = numMessages - PRICING.capacityThreshold;
+                const extraPacks = Math.ceil(additionalMessages / PRICING.capacityThreshold);
+                externalCost += (extraPacks * PRICING.studioCapacityPack);
+                capacityPacks += extraPacks;
+            }
+
+            const totalCost = internalCost + externalCost;
+
+            return {
+                numEmployees,
+                numMessages,
+                internalCost,
+                externalCost,
+                totalCost,
+                capacityPacks
+            };
+        }
+
+        // Update UI
+        function updateUI() {
+            const data = calculateCosts();
+
+            // Update Labels
+            valInternal.textContent = formatNum(data.numEmployees);
+            valExternal.textContent = formatNum(data.numMessages);
+            totalCostEl.textContent = formatCurr(data.totalCost);
+
+            // Update Breakdown Text
+            breakdownTextEl.innerHTML = `
+                <div class="flex justify-between"><span class="font-semibold text-brand">Internal Copilot Licenses:</span> <span>${formatNum(data.numEmployees)} users @ $30/mo = <strong>${formatCurr(data.internalCost)}</strong></span></div>
+                <div class="flex justify-between"><span class="font-semibold text-brand-accent">Copilot Studio Capacity:</span> <span>${data.capacityPacks} pack(s) (up to ${formatNum(data.capacityPacks * 25000)} msgs) = <strong>${formatCurr(data.externalCost)}</strong></span></div>
+            `;
+
+            // Update Chart
+            updateChart(data);
+        }
+
+        // Initialize/Update Chart.js
+        function updateChart(data) {
+            const ctx = document.getElementById('costChart').getContext('2d');
+            
+            const chartData = {
+                labels: ['Internal (Copilot M365)', 'External (Message Capacity)'],
+                datasets: [{
+                    data: [data.internalCost, data.externalCost],
+                    backgroundColor: [
+                        '#4f46e5', // brand DEFAULT
+                        '#0ea5e9'  // brand accent
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            };
+
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false, // CRITICAL for chart-container to work properly
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 20, font: { family: "'Segoe UI', sans-serif" } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) { label += ': '; }
+                                if (context.parsed !== null) {
+                                    label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                cutout: '65%' // Makes it a doughnut
+            };
+
+            if (myChart) {
+                myChart.data = chartData;
+                myChart.update();
+            } else {
+                myChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: chartData,
+                    options: chartOptions
+                });
+            }
+        }
+
+        // --- Event Listeners ---
+        sliderInternal.addEventListener('input', updateUI);
+        sliderExternal.addEventListener('input', updateUI);
+
+        // Functional Navigation / Tab Logic
+        function switchTab(tabId) {
+            // Update buttons
+            document.getElementById('tab-internal').className = `px-8 py-4 text-lg font-semibold border-b-4 transition-colors ${tabId === 'internal' ? 'border-brand text-brand' : 'border-transparent text-stone-500 hover:text-stone-700'}`;
+            document.getElementById('tab-external').className = `px-8 py-4 text-lg font-semibold border-b-4 transition-colors ${tabId === 'external' ? 'border-brand text-brand' : 'border-transparent text-stone-500 hover:text-stone-700'}`;
+            
+            // Update content visibility
+            document.getElementById('content-internal').classList.remove('active');
+            document.getElementById('content-external').classList.remove('active');
+            
+            // Small timeout to allow transition
+            setTimeout(() => {
+                document.getElementById(`content-${tabId}`).classList.add('active');
+            }, 50);
+        }
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            updateUI();
+        });
+
+    </script>
+</body>
+</html>
